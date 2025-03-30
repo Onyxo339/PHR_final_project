@@ -4,7 +4,6 @@
 https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 
 ## Full build ke stažení:
-file:///C:/Users/jakub/Documents/Propagace_hry/game.html
 
 ## Propagace:
 https://github.com/Onyxo339/Propagace_PHR
