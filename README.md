@@ -6,4 +6,12 @@ https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 ## Základní ovládání:
 - Mimo boj se pohybujeme šipkama doleva a doprava.
 - Když dojdeme ke dveřím (levá nebo pravá strana místnosti) zmáčkneme enter/mezerník pro vtopení do další místnosti
+
 ![PHR_final_project (DEBUG) 3_30_2025 12_08_52 PM](https://github.com/user-attachments/assets/c0b3b2bd-eb20-42db-8949-e76968bd1072)
+
+- Pokud se nalezneme v boji máme na výběr 3 tlačítka
+- ATTACK - Po kliknutí tlačítka attack ubereme nepříteli daný počet životů a on nám také.
+- DEFEND - Po kliknutí tlačítka defend vyblokujeme veškeré poškození.
+- RUN - Po kliknutí tlačítka run budeme přesunuti do předešlé místnosti.
+
+![PHR_final_project (DEBUG) 3_30_2025 12_09_00 PM](https://github.com/user-attachments/assets/a9841aa4-3765-4013-8c5c-c521cd797757)
