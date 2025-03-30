@@ -3,6 +3,10 @@
 ## Ukázka celé hry:
 https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 
+## Základní menu:
+
+![PHR_final_project (DEBUG) 3_30_2025 12_08_36 PM](https://github.com/user-attachments/assets/581c9a05-13c9-49bd-856d-c73f9131b418)
+
 ## Základní ovládání:
 - Mimo boj se pohybujeme šipkama doleva a doprava.
 - Když dojdeme ke dveřím (levá nebo pravá strana místnosti) zmáčkneme enter/mezerník pro vtopení do další místnosti
