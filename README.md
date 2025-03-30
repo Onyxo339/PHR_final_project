@@ -1,5 +1,15 @@
 # PHR_final_project
 
+## Základní koncepce:
+- Hra bude tvořena v enginu Godot.
+- Pohled bude z boku a 2D.
+- Hráč se bude moc pohybovat přez místnost a procházet dveřmi (Jedny na každé straně mástnosti).
+- Boj bude turn base se 3 tlačítky
+- Při boji se na horní části objeví životy hráče a v dolní části možné akce
+
+![room_](https://github.com/user-attachments/assets/a9058d29-732c-4167-8bb5-c2a3159ca16b)
+
+
 ## Ukázka celé hry:
 https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 
