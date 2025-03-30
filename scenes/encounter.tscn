@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bff3w4vfv26n7"]
+
+[ext_resource type="Texture2D" uid="uid://lhw5csgn0qjy" path="res://assets/room_background.png" id="1_cas8b"]
+[ext_resource type="PackedScene" uid="uid://hgvqblpqscwl" path="res://scenes/player.tscn" id="1_kw12v"]
+[ext_resource type="PackedScene" uid="uid://swaojb63ptqr" path="res://scenes/wall.tscn" id="2_p0tw8"]
+[ext_resource type="Script" path="res://scripts/area_2d2.gd" id="3_tx2xi"]
+[ext_resource type="Script" path="res://scripts/area_2d_2_5.gd" id="4_udlj5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_efo48"]
+distance = -3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knxed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llvti"]
+radius = 10.0499
+
+[node name="encounter" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cas8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="Player" parent="." instance=ExtResource("1_kw12v")]
+position = Vector2(87, 647)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(87, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("WorldBoundaryShape2D_efo48")
+
+[node name="wall" parent="." instance=ExtResource("2_p0tw8")]
+position = Vector2(-10, 637)
+
+[node name="wall2" parent="." instance=ExtResource("2_p0tw8")]
+position = Vector2(1162, 637)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_tx2xi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1152, 637)
+shape = SubResource("CircleShape2D_knxed")
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("4_udlj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 637)
+shape = SubResource("CircleShape2D_llvti")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1fj6fe3q5kxh"]
+
+[ext_resource type="Texture2D" uid="uid://7vlpnhdt6hid" path="res://assets/room_background_left_door.png" id="1_yra06"]
+[ext_resource type="PackedScene" uid="uid://dknerr6tl4wxc" path="res://scenes/key_main.tscn" id="2_0lko0"]
+[ext_resource type="PackedScene" uid="uid://hgvqblpqscwl" path="res://scenes/player.tscn" id="2_4jdma"]
+[ext_resource type="PackedScene" uid="uid://swaojb63ptqr" path="res://scenes/wall.tscn" id="3_k35x7"]
+[ext_resource type="Script" path="res://scripts/area_2d_3.gd" id="5_01qo5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ixu0v"]
+distance = -3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rmcb"]
+radius = 10.0499
+
+[node name="Final_encounter" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_yra06")
+
+[node name="key_main" parent="." instance=ExtResource("2_0lko0")]
+position = Vector2(1004, 608)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="Player" parent="." instance=ExtResource("2_4jdma")]
+position = Vector2(87, 647)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(87, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("WorldBoundaryShape2D_ixu0v")
+
+[node name="wall" parent="." instance=ExtResource("3_k35x7")]
+position = Vector2(-10, 637)
+
+[node name="wall2" parent="." instance=ExtResource("3_k35x7")]
+position = Vector2(1162, 637)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-2, -3)
+script = ExtResource("5_01qo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(2, 640)
+shape = SubResource("CircleShape2D_2rmcb")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

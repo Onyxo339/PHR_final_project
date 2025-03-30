@@ -1,0 +1,201 @@
+[gd_scene load_steps=11 format=3 uid="uid://cta2wmt5kd7lv"]
+
+[ext_resource type="Script" path="res://scripts/final_battle.gd" id="1_ddbnb"]
+[ext_resource type="PackedScene" uid="uid://bkpe2pbcvkdew" path="res://scenes/idle_player.tscn" id="2_bcsf0"]
+[ext_resource type="Texture2D" uid="uid://7vlpnhdt6hid" path="res://assets/room_background_left_door.png" id="2_huvvc"]
+[ext_resource type="PackedScene" uid="uid://i1ddde1pv0bn" path="res://scenes/final_idle_enemy.tscn" id="3_tt0ht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3jhc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cisod"]
+bg_color = Color(0.570548, 0.635937, 0.356649, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l4wl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3oue"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qftk0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdrjx"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="final_battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ddbnb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 1152.0
+offset_bottom = 581.0
+texture = ExtResource("2_huvvc")
+
+[node name="idle_player" parent="." instance=ExtResource("2_bcsf0")]
+position = Vector2(148, 583)
+
+[node name="EnemyContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 871.0
+offset_top = 319.0
+offset_right = -121.0
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_g3jhc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cisod")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="final_idle_enemy" parent="EnemyContainer/ProgressBar" instance=ExtResource("3_tt0ht")]
+position = Vector2(37, 82)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.106
+offset_bottom = 0.311996
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0l4wl")
+
+[node name="PlayerData" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "PLAYER:"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/PlayerData"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_g3jhc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cisod")
+max_value = 50.0
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="action Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.897
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.255981
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3oue")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="action Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(0.310617, 0.310617, 0.310617, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdrjx")
+text = "ATTACK"
+
+[node name="Button2" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(0.310617, 0.310617, 0.310617, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdrjx")
+text = "DEFEND"
+
+[node name="Button3" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(0.310617, 0.310617, 0.310617, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qftk0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdrjx")
+text = "RUN"
+
+[connection signal="pressed" from="action Panel/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="action Panel/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="action Panel/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

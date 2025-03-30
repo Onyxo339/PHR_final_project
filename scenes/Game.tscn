@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=3 uid="uid://bjtinng6pmkla"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_3kmbs"]
+[ext_resource type="PackedScene" uid="uid://hgvqblpqscwl" path="res://scenes/player.tscn" id="1_s5a8e"]
+[ext_resource type="Texture2D" uid="uid://lhw5csgn0qjy" path="res://assets/room_background.png" id="2_h0hje"]
+[ext_resource type="PackedScene" uid="uid://swaojb63ptqr" path="res://scenes/wall.tscn" id="3_5m3c7"]
+[ext_resource type="Script" path="res://scripts/area_2d1.gd" id="4_xdxbj"]
+[ext_resource type="Script" path="res://scripts/area_2d_1_5.gd" id="6_0vsan"]
+[ext_resource type="FontFile" uid="uid://d2qs5bok748eu" path="res://assets/alagard.ttf" id="7_ke3l4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2w4y6"]
+distance = -3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ifbm"]
+
+[sub_resource type="Animation" id="Animation_0ks00"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7sqno"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ico3b"]
+_data = {
+"RESET": SubResource("Animation_0ks00"),
+"new_animation": SubResource("Animation_7sqno")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpmhi"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_3kmbs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_h0hje")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="Player" parent="." instance=ExtResource("1_s5a8e")]
+position = Vector2(87, 647)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(87, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("WorldBoundaryShape2D_2w4y6")
+
+[node name="wall" parent="." instance=ExtResource("3_5m3c7")]
+position = Vector2(-10, 637)
+
+[node name="wall2" parent="." instance=ExtResource("3_5m3c7")]
+position = Vector2(1162, 637)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_xdxbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1152, 637)
+shape = SubResource("CircleShape2D_8ifbm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 323.0
+offset_right = 300.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("7_ke3l4")
+theme_override_font_sizes/font_size = 25
+text = "You do not have the key 
+Try the other way"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ico3b")
+}
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("6_0vsan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 637)
+shape = SubResource("CircleShape2D_bpmhi")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
