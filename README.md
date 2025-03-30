@@ -1,7 +1,8 @@
 # PHR_final_project
 
 ## Ukázka celé hry:
-https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
+https://github.com/user-attachments/assets/4f04f418-15e9-4694-9617-72c2fee4afa0
+
 
 ## Full build ke stažení:
 - stáhněte download_game.7z
