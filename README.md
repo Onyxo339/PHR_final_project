@@ -4,6 +4,8 @@
 https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 
 ## Základní menu:
+- Tlačítko start game nás přesune do hry.
+- Exit vypne hru.
 
 ![PHR_final_project (DEBUG) 3_30_2025 12_08_36 PM](https://github.com/user-attachments/assets/581c9a05-13c9-49bd-856d-c73f9131b418)
 
