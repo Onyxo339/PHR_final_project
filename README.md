@@ -19,7 +19,7 @@ https://github.com/Onyxo339/Propagace_PHR
 ![room_](https://github.com/user-attachments/assets/a9058d29-732c-4167-8bb5-c2a3159ca16b)
 
 ## Game design:
-- Hráč se bude moc pohybovat přez místnost a procházet dveřmi (Jedny na každé straně mástnosti).
+- Hráč se bude moc pohybovat po místnostech a procházet dveřmi (Jedny na každé straně mástnosti).
 - Boj bude turn base se 3 tlačítky.
 - Při boji se na horní části objeví životy hráče a v dolní části možné akce.
 - Hráč bude mít tvrdě dané životy které se zvýší po poražení nepřítele.
