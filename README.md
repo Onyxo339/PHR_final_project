@@ -6,11 +6,22 @@ https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 ## Základní koncepce:
 - Hra bude tvořena v enginu Godot.
 - Pohled bude z boku a 2D.
-- Hráč se bude moc pohybovat přez místnost a procházet dveřmi (Jedny na každé straně mástnosti).
-- Boj bude turn base se 3 tlačítky
-- Při boji se na horní části objeví životy hráče a v dolní části možné akce
+- Budete procházet místnosti a hledat klíče pro odemčení dalších místností.
 
 ![room_](https://github.com/user-attachments/assets/a9058d29-732c-4167-8bb5-c2a3159ca16b)
+
+## Game design:
+- Hráč se bude moc pohybovat přez místnost a procházet dveřmi (Jedny na každé straně mástnosti).
+- Boj bude turn base se 3 tlačítky.
+- Při boji se na horní části objeví životy hráče a v dolní části možné akce.
+- Hráč bude mít tvrdě dané životy které se zvýší po poražení nepřítele.
+- Poškození bude náhodně vybrané mezi tvrdě danými čísly, které se také zvýší po poražení nepřítele.
+- S postavou budete chodit po místnostech a zbírat klíče pro odemčení dveří a silnějších nepřítal.
+
+## Grafika:
+- Postavy budou ve formě pixelartu.
+- Software Krita a Paint
+- Hardware PC a myš
 
 ## Základní menu:
 - Tlačítko start game nás přesune do hry.
