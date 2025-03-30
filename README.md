@@ -4,7 +4,8 @@
 https://github.com/user-attachments/assets/9def42e1-ec0b-49a3-97ba-b2f016a0c942
 
 ## Full build ke stažení:
-- stáhněte download.7zip
+- stáhněte download.7z
+- extrahujte a zapněte soubor PHR_final_project.exe
 
 ## Propagace:
 https://github.com/Onyxo339/Propagace_PHR
